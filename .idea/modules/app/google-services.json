@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "227511616085",
+    "firebase_url": "https://poker-game-session-tracker.firebaseio.com",
+    "project_id": "poker-game-session-tracker",
+    "storage_bucket": "poker-game-session-tracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227511616085:android:cdc84010efeb71b0ae4adc",
+        "android_client_info": {
+          "package_name": "com.example.pokergamesessiontracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227511616085-1e4uda365tgbqen814mtmd86chpufusd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokergamesessiontracker",
+            "certificate_hash": "60c318e2abf3944986df32f8922814153bb37236"
+          }
+        },
+        {
+          "client_id": "227511616085-s47ioapf8pmf8dff7fvcfmn097bfacgq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN8_MSk_wiTr-bt1hSfDgJ7L-dEb6Qnv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227511616085-s47ioapf8pmf8dff7fvcfmn097bfacgq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
