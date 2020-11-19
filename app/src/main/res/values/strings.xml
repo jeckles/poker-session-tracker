@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Poker Game Session Tracker</string>
+    <string name="amountMadeOrLost">Amount Made/Lost</string>
+    <string name="sessionsPlayed">Sessions Played</string>
+    <string name="hoursPlayed">Hours Played</string>
+    <string name="bbPerHour">Big Blinds / Hour</string>
+    <string name="careerStats">♦ ♣ Career Stats ♥ ♠</string>
+
 </resources>

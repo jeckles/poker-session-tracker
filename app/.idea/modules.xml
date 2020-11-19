@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1212532662/Poker_Game_Session_Tracker.iml" filepath="$PROJECT_DIR$/.idea/modules/-1212532662/Poker_Game_Session_Tracker.iml" group="Poker_Game_Session_Tracker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="Poker Game Session Tracker/app" />
+    </modules>
+  </component>
+</project>
