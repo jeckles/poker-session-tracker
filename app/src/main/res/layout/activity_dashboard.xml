@@ -7,66 +7,73 @@
     android:layout_height="match_parent"
     tools:context="com.example.pokergamesessiontracker.DashboardActivity">
 
-
-    <EditText
+    <TextView
         android:id="@+id/careerStatsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:hint="@string/careerStats"
+        android:text="@string/careerStats"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
+        android:textSize="30sp"
         />
 
 
-    <EditText
+    <TextView
         android:id="@+id/moneyMadeText"
         android:layout_height="wrap_content"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:hint="@string/amountMadeOrLost"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
         android:layout_below="@id/careerStatsText"
         android:layout_alignParentLeft="true"
+        android:textSize="20sp"
         />
 
-    <EditText
+    <TextView
         android:id="@+id/moneyMade"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/moneyMadeText"
         android:hint="--"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="20sp"
+        />
 
-    <EditText
+    <TextView
         android:id="@+id/sessionsPlayedText"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:hint="@string/sessionsPlayed"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
         android:layout_below="@id/moneyMade"
+        android:textSize="20sp"
+
         />
 
-    <EditText
+    <TextView
         android:id="@+id/sessionsPlayed"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:hint="--"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
         android:layout_below="@id/sessionsPlayedText"
+        android:textSize="20sp"
+
         />
 
-    <EditText
+    <TextView
         android:id="@+id/bbPerHourText"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:hint="@string/bbPerHour"
         android:importantForAutofill="no"
@@ -74,12 +81,13 @@
         android:textAlignment="center"
         android:layout_below="@id/careerStatsText"
         android:layout_alignParentRight="true"
+        android:textSize="20sp"
 
         />
 
-    <EditText
+    <TextView
         android:id="@+id/bbPerHour"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:hint="--"
         android:importantForAutofill="no"
@@ -87,32 +95,35 @@
         android:textAlignment="center"
         android:layout_below="@id/bbPerHourText"
         android:layout_alignParentRight="true"
+        android:textSize="20sp"
 
         />
 
-    <EditText
+    <TextView
         android:id="@+id/hoursPlayedText"
         android:layout_height="wrap_content"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:hint="@string/hoursPlayed"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
         android:layout_below="@id/bbPerHour"
         android:layout_alignParentRight="true"
+        android:textSize="20sp"
 
         />
 
-    <EditText
+    <TextView
         android:id="@+id/hoursPlayed"
         android:layout_height="wrap_content"
-        android:layout_width="190dp"
+        android:layout_width="195dp"
         android:hint="--"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
         android:layout_below="@id/hoursPlayedText"
         android:layout_alignParentRight="true"
+        android:textSize="20sp"
 
         />
 
@@ -128,12 +139,14 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_above="@id/listViewSessions"
         android:layout_below="@id/hoursPlayed"
+        android:textSize="20sp"
+
         />
 
     <ListView
         android:id="@+id/listViewSessions"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="390dp"
         android:layout_above="@id/buttonAddSession"
         />
 
