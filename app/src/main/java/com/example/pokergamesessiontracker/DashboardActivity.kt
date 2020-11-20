@@ -21,7 +21,7 @@ class DashboardActivity : AppCompatActivity() {
 
     internal lateinit var sessions: MutableList<Session>
 
-    private lateinit var databaseAuthors: DatabaseReference
+    private lateinit var databaseSession: DatabaseReference
 
     private lateinit var uid: String
 
@@ -30,6 +30,12 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        listViewSessions = findViewById<View>(R.id.listViewSessions) as ListView
+
+        databaseSession = FirebaseDatabase.getInstance().getReference()
+
+        sessions = ArrayList()
+
         val username = intent.getStringExtra("com.example.tesla.myhomelibrary.useremail")
         //val username = savedInstanceState!!.getString("com.example.tesla.myhomelibrary.userid")
         Toast.makeText(
@@ -37,5 +43,13 @@ class DashboardActivity : AppCompatActivity() {
             "welcome user " + username.toString(),
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    override fun onStart() {
+        Log.i("onStart", "In onStart method")
+        super.onStart()
+
+        val sessionAdapter = SessionList(this@DashboardActivity, sessions)
+        listViewSessions.adapter = sessionAdapter
     }
 }

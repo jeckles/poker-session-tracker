@@ -126,12 +126,12 @@
         android:text="Recent Sessions"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:layout_above="@id/listViewAuthors"
+        android:layout_above="@id/listViewSessions"
         android:layout_below="@id/hoursPlayed"
         />
 
     <ListView
-        android:id="@+id/listViewAuthors"
+        android:id="@+id/listViewSessions"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_above="@id/buttonAddSession"
