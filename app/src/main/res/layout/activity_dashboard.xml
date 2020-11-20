@@ -123,26 +123,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="Sessions"
+        android:text="Recent Sessions"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:layout_above="@id/listViewAuthors"
+        android:layout_below="@id/hoursPlayed"
         />
-
-    <Button
-        android:id="@+id/buttonAddSession"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Session"
-        android:textAlignment="center"
-        android:layout_marginBottom="5dp"
-        android:layout_above="@id/sessionsText"/>
 
     <ListView
         android:id="@+id/listViewAuthors"
         android:layout_width="match_parent"
-        android:layout_height="352dp"
+        android:layout_height="300dp"
+        android:layout_above="@id/buttonAddSession"
+        />
+
+    <Button
+        android:id="@+id/buttonAddSession"
+        android:layout_width="195dp"
+        android:layout_height="50dp"
+        android:text="Add Session"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+
+        />
+
+    <Button
+        android:id="@+id/buttonViewGraphs"
+        android:layout_width="195dp"
+        android:layout_height="50dp"
+        android:text="View Graphs"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         />
 
 </RelativeLayout>
