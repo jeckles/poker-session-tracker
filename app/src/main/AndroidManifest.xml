@@ -22,6 +22,10 @@
         </activity>
         <activity android:name=".RegistrationActivity">
         </activity>
+        <activity android:name=".SessionActivity">
+        </activity>
+        <activity android:name=".SessionView">
+        </activity>
     </application>
 
 </manifest>

@@ -231,8 +231,8 @@
         android:layout_below="@id/hoursPlayedText"
         android:layout_alignParentLeft="true"
         android:textSize="20sp"
-
         />
+
 
     <Button
         android:id="@+id/buttonSubmitSession"
