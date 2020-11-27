@@ -40,9 +40,13 @@ class DashboardActivity : AppCompatActivity() {
 
         sessions = ArrayList()
 
+        uid = intent.getStringExtra("com.example.pokergamesessiontracker.userid").toString()
+        Log.i("DashboardActivity", "uid is " + uid.toString())
+
         buttonAddSession.setOnClickListener {
             val intent = Intent(applicationContext, SessionActivity::class.java)
             intent.putExtra("count", count)
+            intent.putExtra("uid", uid)
             count++
             startActivityForResult(intent, ACTIVITY_CODE)
         }
@@ -56,8 +60,7 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val username = intent.getStringExtra("com.example.tesla.myhomelibrary.useremail")
-        //val username = savedInstanceState!!.getString("com.example.tesla.myhomelibrary.userid")
+        val username = intent.getStringExtra("com.example.pokergamesessiontracker.useremail")
         Toast.makeText(
             applicationContext,
             "welcome user " + username.toString(),

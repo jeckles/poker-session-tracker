@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import kotlin.collections.ArrayList
+import android.util.Log
 
 class SessionActivity : AppCompatActivity() {
 
@@ -46,6 +47,7 @@ class SessionActivity : AppCompatActivity() {
 
         val bundle = intent.extras
         var count = bundle?.getInt("count")
+        var uid = bundle?.getString("uid")
         var sessions = ArrayList<Session>()
 
         buttonSubmitSession.setOnClickListener {
@@ -66,6 +68,15 @@ class SessionActivity : AppCompatActivity() {
 
             var addThis = Session(sessionId , date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
             sessions.add(addThis)
+
+            Log.i("Session Activity", "UID is " + uid.toString())
+
+            if (uid != null) {
+                Log.i("Session Activity", "adding to database ")
+                databaseSession.child(uid).setValue(sessionId)
+                databaseSession.child(uid).child(sessionId).setValue(addThis)
+            }
+
 
             var returnIntent = Intent()
             returnIntent.putParcelableArrayListExtra("result", sessions)
