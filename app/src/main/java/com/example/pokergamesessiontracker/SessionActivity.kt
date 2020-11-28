@@ -59,6 +59,9 @@ class SessionActivity : AppCompatActivity() {
             } else if (sessionRadioButtonTexasHoldem.isChecked()) {
                 sessionType = "Pot Limit Omaha"
             }
+
+            Log.i("sessionType", sessionType)
+
             var location = sessionLocation.text.toString()
             var smallBlind = smallBlindEntry.text.toString().toInt()
             var bigBlind = bigBlindEntry.text.toString().toInt()
