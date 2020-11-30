@@ -3,6 +3,7 @@ package com.example.pokergamesessiontracker
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.INotificationSideChannel
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -19,8 +20,11 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var buttonAddSession: Button
     internal lateinit var listViewSessions: ListView
+    internal lateinit var moneyMade: TextView
+    internal lateinit var returnOnInvestment: TextView
+    internal lateinit var sessionsPlayed: TextView
+    internal lateinit var hoursPlayed: TextView
     private lateinit var buttonViewGraphs: Button
-
 
     internal lateinit var sessions: ArrayList<Session>
 
@@ -38,6 +42,11 @@ class DashboardActivity : AppCompatActivity() {
         listViewSessions = findViewById<View>(R.id.listViewSessions) as ListView
         buttonAddSession = findViewById<View>(R.id.buttonAddSession) as Button
         buttonViewGraphs = findViewById<View>(R.id.buttonViewGraphs) as Button
+
+        moneyMade = findViewById<TextView>(R.id.moneyMade)
+        returnOnInvestment = findViewById<TextView>(R.id.returnOnInvestment)
+        sessionsPlayed = findViewById<TextView>(R.id.sessionsPlayed)
+        hoursPlayed = findViewById<TextView>(R.id.hoursPlayed)
 
         databaseSession = FirebaseDatabase.getInstance().getReference()
 
@@ -108,8 +117,53 @@ class DashboardActivity : AppCompatActivity() {
         Log.i("onStart", "In onStart method")
         super.onStart()
 
-        val sessionAdapter = SessionList(this@DashboardActivity, sessions)
-        listViewSessions.adapter = sessionAdapter
+        var buyins: Int = 0
+        var cashouts: Int = 0
+        var sessionCount: Int = 0
+        var hours: Int = 0
+
+        databaseSession.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                var session: Session? = null
+                Log.i("child count is = ", dataSnapshot.childrenCount.toString())
+                for (postSnapshot in dataSnapshot.child(uid).children) {
+                    try {
+                        session = postSnapshot.getValue(Session::class.java)
+                        buyins += session!!.buyInAmount
+                        cashouts += session!!.cashOutAmount
+                        sessionCount += 1
+                        hours += session!!.hoursPlayed
+                    } catch (e: Exception) {
+                        Log.e("Error", e.toString())
+                    } finally {
+                        Log.i("session buyInAmount = ", session!!.buyInAmount.toString())
+                        Log.i("session cashOutAmount = ", session!!.cashOutAmount.toString())
+                        Log.i("session hoursPlayed = ", session!!.hoursPlayed.toString())
+                    }
+                }
+                var profit = cashouts - buyins
+                var investment: Int = 0
+                if (buyins > 0) {
+                    investment = cashouts / buyins
+                }
+
+                moneyMade.text = profit.toString()
+                returnOnInvestment.text = investment.toString()
+                sessionsPlayed.text = sessionCount.toString()
+                hoursPlayed.text = hours.toString()
+
+                val sessionAdapter = SessionList(this@DashboardActivity, sessions)
+                listViewSessions.adapter = sessionAdapter
+            }
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
+
+
+        //val sessionAdapter = SessionList(this@DashboardActivity, sessions)
+        //listViewSessions.adapter = sessionAdapter
     }
 
     companion object {

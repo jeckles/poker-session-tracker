@@ -72,10 +72,10 @@
         />
 
     <TextView
-        android:id="@+id/bbPerHourText"
+        android:id="@+id/returnOnInvestmentText"
         android:layout_width="195dp"
         android:layout_height="wrap_content"
-        android:hint="@string/bbPerHour"
+        android:hint="Return on Investment"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
@@ -86,14 +86,14 @@
         />
 
     <TextView
-        android:id="@+id/bbPerHour"
+        android:id="@+id/returnOnInvestment"
         android:layout_width="195dp"
         android:layout_height="wrap_content"
         android:hint="--"
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
-        android:layout_below="@id/bbPerHourText"
+        android:layout_below="@id/returnOnInvestmentText"
         android:layout_alignParentRight="true"
         android:textSize="20sp"
 
@@ -107,7 +107,7 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:textAlignment="center"
-        android:layout_below="@id/bbPerHour"
+        android:layout_below="@+id/returnOnInvestment"
         android:layout_alignParentRight="true"
         android:textSize="20sp"
 

@@ -76,8 +76,9 @@ class SessionActivity : AppCompatActivity() {
 
             if (uid != null) {
                 Log.i("Session Activity", "adding to database ")
-                databaseSession.child(uid).setValue(sessionId)
-                databaseSession.child(uid).child(sessionId).setValue(addThis)
+                //databaseSession.child(uid).setValue(sessionId)
+                val id = databaseSession.push().key
+                databaseSession.child(uid).child(id!!).setValue(addThis)
             }
 
 
