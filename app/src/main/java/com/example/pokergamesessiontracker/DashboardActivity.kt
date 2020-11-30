@@ -19,6 +19,8 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var buttonAddSession: Button
     internal lateinit var listViewSessions: ListView
+    private lateinit var buttonViewGraphs: Button
+
 
     internal lateinit var sessions: ArrayList<Session>
 
@@ -35,6 +37,7 @@ class DashboardActivity : AppCompatActivity() {
 
         listViewSessions = findViewById<View>(R.id.listViewSessions) as ListView
         buttonAddSession = findViewById<View>(R.id.buttonAddSession) as Button
+        buttonViewGraphs = findViewById<View>(R.id.buttonViewGraphs) as Button
 
         databaseSession = FirebaseDatabase.getInstance().getReference()
 
@@ -49,6 +52,11 @@ class DashboardActivity : AppCompatActivity() {
             intent.putExtra("uid", uid)
             count++
             startActivityForResult(intent, ACTIVITY_CODE)
+        }
+
+        buttonViewGraphs.setOnClickListener {
+            val intent = Intent(applicationContext, ViewGraphsActivity::class.java)
+            startActivity(intent)
         }
 
         listViewSessions.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->

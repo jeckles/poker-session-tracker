@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".SessionView">
         </activity>
+        <activity android:name=".ViewGraphsActivity">
+        </activity>
     </application>
 
 </manifest>

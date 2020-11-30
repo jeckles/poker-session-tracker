@@ -1,16 +1,22 @@
 package com.example.pokergamesessiontracker
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
+import android.content.DialogInterface
 import android.os.Bundle
-import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.*
-import kotlin.collections.ArrayList
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
 
 class SessionView : AppCompatActivity() {
+
+    private lateinit var buttonEditSession: Button
+    private lateinit var buttonDeleteSession: Button
+    private lateinit var databaseSession: DatabaseReference
+
 
     private lateinit var datePlayed: TextView
     private lateinit var locationPlayed: TextView
@@ -25,6 +31,12 @@ class SessionView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_session_view)
+
+        buttonEditSession = findViewById<Button>(R.id.buttonEditSession) as Button
+        buttonDeleteSession = findViewById<Button>(R.id.buttonDeleteSession) as Button
+        databaseSession = FirebaseDatabase.getInstance().getReference()
+
+
 
         datePlayed = findViewById<TextView>(R.id.datePlayed)
         locationPlayed = findViewById<TextView>(R.id.locationPlayed)
@@ -45,6 +57,7 @@ class SessionView : AppCompatActivity() {
         val buyIn = bundle?.get("buyInAmount").toString()
         val cashOut = bundle?.get("cashOutAmount").toString()
 
+
         datePlayed.text = date
         locationPlayed.text = location
         gameTypePlayed.text = gameType
@@ -53,5 +66,29 @@ class SessionView : AppCompatActivity() {
         bigBlindAmount.text = bigBlind
         buyInAmount.text = buyIn
         cashOutAmount.text = cashOut
+
+
+        buttonDeleteSession.setOnClickListener{
+            val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
+                when (which) {
+                    DialogInterface.BUTTON_POSITIVE -> {
+                        //delete
+                        Toast.makeText(this, "Session Deleted", Toast.LENGTH_SHORT).show()
+                        //go to home page
+                        return@OnClickListener
+                    }
+                    DialogInterface.BUTTON_NEGATIVE -> {
+                        Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
+                        return@OnClickListener
+                    }
+                }
+            }
+            val ab: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
+            ab.setMessage("Are you sure you want to delete?").setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener).show()
+        }
+
+
+
     }
 }

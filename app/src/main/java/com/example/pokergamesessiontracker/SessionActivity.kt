@@ -56,7 +56,7 @@ class SessionActivity : AppCompatActivity() {
             var sessionType = ""
             if (sessionRadioButtonTexasHoldem.isChecked()) {
                 sessionType = "Texas Hold'Em"
-            } else if (sessionRadioButtonTexasHoldem.isChecked()) {
+            } else if (sessionRadioButtonPotLimitOmaha.isChecked()) {
                 sessionType = "Pot Limit Omaha"
             }
 
