@@ -2,6 +2,7 @@ package com.example.pokergamesessiontracker
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -34,9 +35,6 @@ class SessionView : AppCompatActivity() {
 
         buttonEditSession = findViewById<Button>(R.id.buttonEditSession) as Button
         buttonDeleteSession = findViewById<Button>(R.id.buttonDeleteSession) as Button
-        databaseSession = FirebaseDatabase.getInstance().getReference()
-
-
 
         datePlayed = findViewById<TextView>(R.id.datePlayed)
         locationPlayed = findViewById<TextView>(R.id.locationPlayed)
@@ -48,6 +46,8 @@ class SessionView : AppCompatActivity() {
         cashOutAmount = findViewById<TextView>(R.id.cashOutAmount)
 
         val bundle = intent.extras
+        val uid = bundle?.get("uid").toString()
+        val id = bundle?.get("id").toString()
         val date = bundle?.get("date").toString()
         val location = bundle?.get("location").toString()
         val gameType = bundle?.get("gameType").toString()
@@ -56,7 +56,6 @@ class SessionView : AppCompatActivity() {
         val bigBlind = bundle?.get("bigBlind").toString()
         val buyIn = bundle?.get("buyInAmount").toString()
         val cashOut = bundle?.get("cashOutAmount").toString()
-
 
         datePlayed.text = date
         locationPlayed.text = location
@@ -67,14 +66,17 @@ class SessionView : AppCompatActivity() {
         buyInAmount.text = buyIn
         cashOutAmount.text = cashOut
 
+        databaseSession = FirebaseDatabase.getInstance().getReference().child(uid).child(id)
 
         buttonDeleteSession.setOnClickListener{
             val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
                 when (which) {
                     DialogInterface.BUTTON_POSITIVE -> {
                         //delete
+                        databaseSession.removeValue()
                         Toast.makeText(this, "Session Deleted", Toast.LENGTH_SHORT).show()
                         //go to home page
+                        finish()
                         return@OnClickListener
                     }
                     DialogInterface.BUTTON_NEGATIVE -> {

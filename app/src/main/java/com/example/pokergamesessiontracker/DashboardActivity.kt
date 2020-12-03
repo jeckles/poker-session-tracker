@@ -72,6 +72,9 @@ class DashboardActivity : AppCompatActivity() {
             val session = sessions[i]
 
             val intent = Intent(applicationContext, SessionView::class.java)
+
+            intent.putExtra("uid", uid)
+            intent.putExtra("id", session.id)
             intent.putExtra("date", session.date)
             intent.putExtra("location", session.location)
             intent.putExtra("gameType", session.gameType)
@@ -80,7 +83,6 @@ class DashboardActivity : AppCompatActivity() {
             intent.putExtra("bigBlind", session.bigBlind)
             intent.putExtra("buyInAmount", session.buyInAmount)
             intent.putExtra("cashOutAmount", session.cashOutAmount)
-
             intent.putExtra("Session ID", session.sessionId)
             startActivity(intent)
         }

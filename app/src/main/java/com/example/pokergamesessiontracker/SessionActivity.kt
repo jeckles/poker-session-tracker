@@ -68,8 +68,10 @@ class SessionActivity : AppCompatActivity() {
             var buyIn = buyInAmount.text.toString().toInt()
             var cashOut = cashOutAmount.text.toString().toInt()
             var hours = hoursPlayed.text.toString().toInt()
+            var id = databaseSession.push().key
 
-            var addThis = Session(sessionId , date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
+
+            var addThis = Session(id, sessionId , date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
             sessions.add(addThis)
 
             Log.i("Session Activity", "UID is " + uid.toString())
@@ -77,7 +79,6 @@ class SessionActivity : AppCompatActivity() {
             if (uid != null) {
                 Log.i("Session Activity", "adding to database ")
                 //databaseSession.child(uid).setValue(sessionId)
-                val id = databaseSession.push().key
                 databaseSession.child(uid).child(id!!).setValue(addThis)
             }
 
