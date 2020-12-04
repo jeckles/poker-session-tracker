@@ -68,7 +68,7 @@ class SessionView : AppCompatActivity() {
 
         databaseSession = FirebaseDatabase.getInstance().getReference().child(uid).child(id)
 
-        buttonDeleteSession.setOnClickListener{
+        buttonDeleteSession.setOnClickListener {
             val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
                 when (which) {
                     DialogInterface.BUTTON_POSITIVE -> {
@@ -86,11 +86,9 @@ class SessionView : AppCompatActivity() {
                 }
             }
             val ab: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
-            ab.setMessage("Are you sure you want to delete?").setPositiveButton("Yes", dialogClickListener)
-                    .setNegativeButton("No", dialogClickListener).show()
+            ab.setMessage("Are you sure you want to delete?")
+                .setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show()
         }
-
-
-
     }
 }

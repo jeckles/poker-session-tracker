@@ -1,146 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/buttonBackToHome"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Back To Home Page"
-        android:textAlignment="center"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_height="match_parent">
 
-
-
-
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal"
-        >
-
-        <RadioButton
-            android:id="@+id/allTimeSelection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="All Time"
-            android:textSize="20sp" />
-
-        <RadioButton
-            android:id="@+id/monthlySelection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monthly"
-            android:textSize="20sp"
-            />
-
-        <RadioButton
-            android:id="@+id/yearlySelection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yearly"
-            android:textSize="20sp"
-
-            />
-
-
-        <NumberPicker
-            android:id="@+id/datePicker"
+        <Button
+            android:id="@+id/buttonBackToHome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:datePickerMode="spinner"
-
-            ></NumberPicker>
-    </RadioGroup>
-
-
-    <TextView
-    android:id="@+id/moneyMadeText"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:hint="Amount Made/Lost Over Time"
-    android:importantForAutofill="no"
-    android:inputType="text"
-    android:gravity="center"
-    android:layout_below="@id/radioGroup1"
-    android:textSize="20sp"
-    android:layout_marginTop="5dp"
-
-
-    />
-
-    <TextView
-        android:id="@+id/barGraphText"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:hint="Bar Graph of Profit By:"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:gravity="center"
-        android:layout_below="@id/graph1View"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-
-
-        />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/barGraphText"
-        android:orientation="horizontal"
-
-        >
-
-        <RadioButton
-            android:id="@+id/stakesSelection"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="Stakes"
-            android:textSize="20sp"
+            android:layout_height="50dp"
+            android:text="Back To Home Page"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
             />
 
-        <RadioButton
-            android:id="@+id/locationSelection"
-            android:layout_width="135dp"
+
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Location"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/allTimeSelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Time"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/monthlySelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly"
+                android:textSize="20sp"
+                />
+
+            <RadioButton
+                android:id="@+id/yearlySelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yearly"
+                android:textSize="20sp"
+
+                />
+
+
+            <NumberPicker
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:datePickerMode="spinner"
+
+                ></NumberPicker>
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/moneyMadeText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Amount Made/Lost Over Time"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:gravity="center"
+            android:layout_below="@id/radioGroup1"
             android:textSize="20sp"
+            android:layout_marginTop="5dp"
+
 
             />
 
-        <RadioButton
-            android:id="@+id/gameTypeSelection"
-            android:layout_width="135dp"
+        <TextView
+            android:id="@+id/barGraphText"
             android:layout_height="wrap_content"
-            android:text="Game Type"
+            android:layout_width="match_parent"
+            android:hint="Bar Graph of Profit By:"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:gravity="center"
+            android:layout_below="@id/graph1View"
             android:textSize="20sp"
+            android:layout_marginTop="10dp"
+
+
             />
 
-    </RadioGroup>
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/barGraphText"
+            android:orientation="horizontal"
+
+            >
+
+            <RadioButton
+                android:id="@+id/stakesSelection"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:text="Stakes"
+                android:textSize="20sp"
+                />
+
+            <RadioButton
+                android:id="@+id/locationSelection"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="20sp"
+
+                />
+
+            <RadioButton
+                android:id="@+id/gameTypeSelection"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:text="Game Type"
+                android:textSize="20sp"
+                />
+
+        </RadioGroup>
 
 
-    <View
-        android:id="@+id/graph1View"
-        android:layout_width="match_parent"
-        android:layout_height="225dp"
-        android:layout_below="@id/moneyMadeText"
-        android:layout_marginTop="10dp"
-        ></View>
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graph1View"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_below="@id/moneyMadeText"
+            android:layout_marginTop="10dp"
+            />
 
-    <View
-        android:id="@+id/graph2View"
-        android:layout_width="match_parent"
-        android:layout_height="225dp"
-        android:layout_below="@id/radioGroup2"
-        android:layout_marginTop="10dp"
-        ></View>
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/graph2View"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_below="@id/radioGroup2"
+            android:layout_marginTop="10dp"
+            />
 
 
 
-</RelativeLayout>
+    </RelativeLayout>

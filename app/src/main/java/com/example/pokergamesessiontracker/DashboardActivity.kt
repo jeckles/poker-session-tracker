@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
+import android.widget.PopupMenu
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -65,6 +66,7 @@ class DashboardActivity : AppCompatActivity() {
 
         buttonViewGraphs.setOnClickListener {
             val intent = Intent(applicationContext, ViewGraphsActivity::class.java)
+            intent.putExtra("uid", uid)
             startActivity(intent)
         }
 

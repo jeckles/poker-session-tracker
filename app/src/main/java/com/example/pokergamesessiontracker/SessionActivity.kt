@@ -52,7 +52,7 @@ class SessionActivity : AppCompatActivity() {
 
         buttonSubmitSession.setOnClickListener {
             var sessionId = "Session: " + count.toString()
-            var date = sessionDate.dayOfMonth.toString() + "/" + sessionDate.month.toString() + "/" + sessionDate.year.toString()
+            var date = sessionDate.year.toString() + "-" + sessionDate.month.toString() + "-" + sessionDate.dayOfMonth.toString()
             var sessionType = ""
             if (sessionRadioButtonTexasHoldem.isChecked()) {
                 sessionType = "Texas Hold'Em"
