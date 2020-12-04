@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class SessionView : AppCompatActivity() {
 
-    private lateinit var buttonEditSession: Button
     private lateinit var buttonDeleteSession: Button
     private lateinit var databaseSession: DatabaseReference
 
@@ -33,7 +32,6 @@ class SessionView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_session_view)
 
-        buttonEditSession = findViewById<Button>(R.id.buttonEditSession) as Button
         buttonDeleteSession = findViewById<Button>(R.id.buttonDeleteSession) as Button
 
         datePlayed = findViewById<TextView>(R.id.datePlayed)

@@ -13,50 +13,6 @@
 
 
 
-
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:orientation="horizontal"
-            >
-
-            <RadioButton
-                android:id="@+id/allTimeSelection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All Time"
-                android:textSize="20sp" />
-
-            <RadioButton
-                android:id="@+id/monthlySelection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monthly"
-                android:textSize="20sp"
-                />
-
-            <RadioButton
-                android:id="@+id/yearlySelection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yearly"
-                android:textSize="20sp"
-
-                />
-
-
-            <NumberPicker
-                android:id="@+id/datePicker"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:datePickerMode="spinner"
-
-                ></NumberPicker>
-        </RadioGroup>
-
-
         <TextView
             android:id="@+id/moneyMadeText"
             android:layout_height="wrap_content"
@@ -65,8 +21,8 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:gravity="center"
-            android:layout_below="@id/radioGroup1"
-            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:textSize="25sp"
             android:layout_marginTop="5dp"
 
 
@@ -81,7 +37,7 @@
             android:inputType="text"
             android:gravity="center"
             android:layout_below="@id/graph1View"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:layout_marginTop="10dp"
 
 
@@ -127,7 +83,7 @@
         <com.jjoe64.graphview.GraphView
             android:id="@+id/graph1View"
             android:layout_width="match_parent"
-            android:layout_height="225dp"
+            android:layout_height="245dp"
             android:layout_below="@id/moneyMadeText"
             android:layout_marginTop="10dp"
             />
@@ -135,7 +91,7 @@
         <com.jjoe64.graphview.GraphView
             android:id="@+id/graph2View"
             android:layout_width="match_parent"
-            android:layout_height="225dp"
+            android:layout_height="245dp"
             android:layout_below="@id/radioGroup2"
             android:layout_marginTop="10dp"
             />

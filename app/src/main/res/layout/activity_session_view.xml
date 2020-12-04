@@ -271,20 +271,12 @@
         />
 
 
-    <Button
-        android:id="@+id/buttonEditSession"
-        android:layout_width="195dp"
-        android:layout_height="50dp"
-        android:text="Edit Session"
-        android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"        />
+
 
 
     <Button
         android:id="@+id/buttonDeleteSession"
-        android:layout_width="195dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Delete Session"
         android:textAlignment="center"
