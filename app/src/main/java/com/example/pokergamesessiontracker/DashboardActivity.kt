@@ -86,6 +86,8 @@ class DashboardActivity : AppCompatActivity() {
             intent.putExtra("buyInAmount", session.buyInAmount)
             intent.putExtra("cashOutAmount", session.cashOutAmount)
             intent.putExtra("Session ID", session.sessionId)
+            intent.putParcelableArrayListExtra("sessionsList", sessions)
+
             startActivity(intent)
         }
 
@@ -103,18 +105,21 @@ class DashboardActivity : AppCompatActivity() {
         if (requestCode == ACTIVITY_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 var array = data?.getParcelableArrayListExtra<Session>("result")
+                var array2 = data?.getParcelableArrayListExtra<Session>("result2")
                 if (array != null) {
                     for (session in array) {
                         sessions.add(session)
                     }
                     Log.i("onActivityResult", "array count = " + array.count().toString())
+                } else if (array2 != null) {
+                    Log.i("onActivityResult", "reset the session")
+                    sessions = array2
                 }
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 Log.i("onActivityResult", "no result")
             }
         }
-
     }
 
     override fun onStart() {

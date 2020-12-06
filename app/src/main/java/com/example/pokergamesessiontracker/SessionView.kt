@@ -1,6 +1,8 @@
 package com.example.pokergamesessiontracker
 
+import android.app.Activity
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -54,6 +56,7 @@ class SessionView : AppCompatActivity() {
         val bigBlind = bundle?.get("bigBlind").toString()
         val buyIn = bundle?.get("buyInAmount").toString()
         val cashOut = bundle?.get("cashOutAmount").toString()
+        var sessionsList: ArrayList<Session> = bundle?.getParcelableArrayList("sessionsList")!!
 
         datePlayed.text = date
         locationPlayed.text = location
@@ -65,6 +68,16 @@ class SessionView : AppCompatActivity() {
         cashOutAmount.text = cashOut
 
         databaseSession = FirebaseDatabase.getInstance().getReference().child(uid).child(id)
+
+        for (session in sessionsList) {
+            if (session.id == id) {
+                sessionsList.remove(session)
+            }
+        }
+
+        var returnIntent = Intent()
+        returnIntent.putParcelableArrayListExtra("result2", sessionsList)
+        setResult(Activity.RESULT_OK, returnIntent)
 
         buttonDeleteSession.setOnClickListener {
             val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->

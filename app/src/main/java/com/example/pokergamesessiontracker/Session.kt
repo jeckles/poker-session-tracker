@@ -5,6 +5,7 @@ import android.os.Parcelable
 
 class Session(val id: String? = "", val sessionId: String? = "", val date: String? = "", val gameType: String? = "", val location: String? = "", val smallBlind: Int = 0, val bigBlind: Int = 0, val buyInAmount: Int = 0, val cashOutAmount: Int = 0, val hoursPlayed: Int = 0) : Parcelable {
     constructor(parcel: Parcel) : this(
+        id = parcel.readString(),
         sessionId = parcel.readString(),
         date = parcel.readString(),
         gameType = parcel.readString(),
@@ -21,6 +22,7 @@ class Session(val id: String? = "", val sessionId: String? = "", val date: Strin
     }
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
+        dest?.writeString(id)
         dest?.writeString(sessionId)
         dest?.writeString(date)
         dest?.writeString(gameType)

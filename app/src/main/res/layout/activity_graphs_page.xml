@@ -17,7 +17,7 @@
             android:id="@+id/moneyMadeText"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:hint="Amount Made/Lost Over Time"
+            android:hint="Amount Made/Lost Over Num Sessions"
             android:importantForAutofill="no"
             android:inputType="text"
             android:gravity="center"

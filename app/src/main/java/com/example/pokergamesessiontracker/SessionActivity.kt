@@ -71,7 +71,7 @@ class SessionActivity : AppCompatActivity() {
             var id = databaseSession.push().key
 
 
-            var addThis = Session(id, sessionId , date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
+            var addThis = Session(id, sessionId, date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
             sessions.add(addThis)
 
             Log.i("Session Activity", "UID is " + uid.toString())
