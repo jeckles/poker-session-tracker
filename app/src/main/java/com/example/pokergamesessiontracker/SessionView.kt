@@ -69,16 +69,6 @@ class SessionView : AppCompatActivity() {
 
         databaseSession = FirebaseDatabase.getInstance().getReference().child(uid).child(id)
 
-        for (session in sessionsList) {
-            if (session.id == id) {
-                sessionsList.remove(session)
-            }
-        }
-
-        var returnIntent = Intent()
-        returnIntent.putParcelableArrayListExtra("result2", sessionsList)
-        setResult(Activity.RESULT_OK, returnIntent)
-
         buttonDeleteSession.setOnClickListener {
             val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
                 when (which) {

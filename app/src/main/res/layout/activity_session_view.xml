@@ -278,7 +278,7 @@
         android:id="@+id/buttonDeleteSession"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Remove Session from Database"
+        android:text="Delete"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"

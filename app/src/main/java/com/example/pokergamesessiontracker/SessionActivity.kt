@@ -51,7 +51,6 @@ class SessionActivity : AppCompatActivity() {
         var sessions = ArrayList<Session>()
 
         buttonSubmitSession.setOnClickListener {
-            var sessionId = "Session: " + count.toString()
             var date = sessionDate.year.toString() + "-" + sessionDate.month.toString() + "-" + sessionDate.dayOfMonth.toString()
             var sessionType = ""
             if (sessionRadioButtonTexasHoldem.isChecked()) {
@@ -70,6 +69,7 @@ class SessionActivity : AppCompatActivity() {
             var hours = hoursPlayed.text.toString().toInt()
             var id = databaseSession.push().key
 
+            var sessionId = "Session: " + id
 
             var addThis = Session(id, sessionId, date, sessionType, location, smallBlind, bigBlind, buyIn, cashOut, hours)
             sessions.add(addThis)

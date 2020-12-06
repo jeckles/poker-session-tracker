@@ -16,6 +16,7 @@ import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
 import android.widget.PopupMenu
+import kotlin.math.roundToInt
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -131,9 +132,11 @@ class DashboardActivity : AppCompatActivity() {
         var sessionCount: Int = 0
         var hours: Int = 0
 
+        //var allSessions = ArrayList<Session>()
+
         databaseSession.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
+                sessions.clear()
                 var session: Session? = null
                 Log.i("child count is = ", dataSnapshot.childrenCount.toString())
                 for (postSnapshot in dataSnapshot.child(uid).children) {
@@ -143,6 +146,7 @@ class DashboardActivity : AppCompatActivity() {
                         cashouts += session!!.cashOutAmount
                         sessionCount += 1
                         hours += session!!.hoursPlayed
+                        sessions.add(session)
                     } catch (e: Exception) {
                         Log.e("Error", e.toString())
                     } finally {
@@ -154,7 +158,7 @@ class DashboardActivity : AppCompatActivity() {
                 var profit = cashouts - buyins
                 var investment: Int = 0
                 if (buyins > 0) {
-                    investment = cashouts / buyins
+                    investment = ((cashouts.toDouble() - buyins.toDouble())/buyins.toDouble() * 100).roundToInt()
                 }
 
                 moneyMade.text = profit.toString()
@@ -169,10 +173,23 @@ class DashboardActivity : AppCompatActivity() {
 
             }
         })
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i("onResume", "in onResume")
+    }
 
-        //val sessionAdapter = SessionList(this@DashboardActivity, sessions)
-        //listViewSessions.adapter = sessionAdapter
+    override fun onPause() {
+        super.onPause()
+        Log.i("onPause", "in onPause")
+        sessions.clear()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("onStop", "in onStop")
+        sessions.clear()
     }
 
     companion object {
