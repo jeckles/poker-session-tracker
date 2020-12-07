@@ -92,6 +92,14 @@ class ViewGraphsActivity : AppCompatActivity() {
                         Log.i("session hoursPlayed = ", session!!.hoursPlayed.toString())
                     }
                 }
+                series.setAnimated(true)
+
+                graphView1.viewport.isXAxisBoundsManual
+                graphView2.viewport.isXAxisBoundsManual
+                graphView2.viewport.isScrollable
+                graphView2.legendRenderer.isVisible
+                graphView1.viewport.setMinX(0.0)
+                graphView1.viewport.setMaxX(200.0)
                 graphView1.addSeries(series)
                 graphView2.addSeries(series2)
             }
