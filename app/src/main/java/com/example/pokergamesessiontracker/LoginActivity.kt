@@ -41,9 +41,8 @@ class LoginActivity : AppCompatActivity() {
         loginBtn!!.setOnClickListener { loginUserAccount() }
     }
 
-    // TODO: Allow the user to log into their account
-    // If the email and password are not empty, try to log in
-    // If the login is successful, store info into intent and launch DashboardActivity
+    // Allows the user to log into their account, making sure the email and password fields are not empty
+    // If the login is successful, this sends info into intent and launch DashboardActivity
     private fun loginUserAccount() {
         Log.i("loginUserAccount Function", "made it here")
         progressBar?.visibility = View.VISIBLE
@@ -64,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 progressBar?.visibility = View.GONE
                 if (task.isSuccessful) {
-                    Log.i("successful login", "made it here")
+                    Log.i("Successful Login", "made it here")
                     Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG)
                         .show()
                     val userID = mAuth!!.uid
@@ -73,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                     intent.putExtra(USER_ID, userID)
                     startActivity(intent)
                 } else {
-                    Log.i("unsuccessful login", "made it here")
+                    Log.i("Unsuccessful Login", "made it here")
                     Toast.makeText(
                         applicationContext,
                         "Login failed! Please try again later",

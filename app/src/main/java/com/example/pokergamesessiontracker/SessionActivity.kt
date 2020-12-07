@@ -11,6 +11,8 @@ import com.google.firebase.database.*
 import kotlin.collections.ArrayList
 import android.util.Log
 
+// This class handles the logistics of entering user data and submitting a session to the database
+
 class SessionActivity : AppCompatActivity() {
 
     private lateinit var buttonSubmitSession: Button
@@ -50,6 +52,7 @@ class SessionActivity : AppCompatActivity() {
         var uid = bundle?.getString("uid")
         var sessions = ArrayList<Session>()
 
+        // When the user hits the submit session button, this code will go through the radio group, date selector, and edit text fields to gather the information, store it in a Session class object, then finally add it to the database
         buttonSubmitSession.setOnClickListener {
             var date = sessionDate.year.toString() + "-" + sessionDate.month.toString() + "-" + sessionDate.dayOfMonth.toString()
             var sessionType = ""
@@ -76,6 +79,8 @@ class SessionActivity : AppCompatActivity() {
 
             Log.i("Session Activity", "UID is " + uid.toString())
 
+
+            // Adding the session to the database under the current user account
             if (uid != null) {
                 Log.i("Session Activity", "adding to database ")
                 //databaseSession.child(uid).setValue(sessionId)
@@ -83,6 +88,7 @@ class SessionActivity : AppCompatActivity() {
             }
 
 
+            // After adding the session, the app will return to the home paage
             var returnIntent = Intent()
             returnIntent.putParcelableArrayListExtra("result", sessions)
             setResult(Activity.RESULT_OK, returnIntent)

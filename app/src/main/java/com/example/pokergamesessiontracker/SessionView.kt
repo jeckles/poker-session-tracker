@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-
+// This class is used when a user clicks on a specific session in the home page
+// This class will gather and display all of the session information to allow users to go back through their recorded sessions
+// This class also gives the user the option to delete the session with the button at the bottom of the page
 class SessionView : AppCompatActivity() {
 
     private lateinit var buttonDeleteSession: Button
@@ -73,10 +75,9 @@ class SessionView : AppCompatActivity() {
             val dialogClickListener = DialogInterface.OnClickListener { dialog, which ->
                 when (which) {
                     DialogInterface.BUTTON_POSITIVE -> {
-                        //delete
+                        // This removes the current session from the database
                         databaseSession.removeValue()
                         Toast.makeText(this, "Session Deleted", Toast.LENGTH_SHORT).show()
-                        //go to home page
                         finish()
                         return@OnClickListener
                     }

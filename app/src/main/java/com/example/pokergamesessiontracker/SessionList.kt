@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 
+// This class helps organize a list of sessions to make it easier to keep track of and display in the home page
 
 class SessionList(private val context: Activity, private var sessions: List<Session>) : ArrayAdapter<Session>(context,
     R.layout.layout_session_list, sessions) {

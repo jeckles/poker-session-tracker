@@ -48,6 +48,10 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
 
+        // After making sure the user has registered a valid email and password, this code will create the account in the database and bring the user to the login page
+
+        // See Validators.kt for what is accepted as a valid email and password
+
         mAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

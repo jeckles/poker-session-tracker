@@ -19,14 +19,22 @@ import java.util.*
 
 import java.sql.Date
 
-class ViewGraphsActivity : AppCompatActivity() {
+// This class handles the displaying of the graphs
+// The top graph will display the total profit/loss of the user (on the y-axis) against the number of sessions (on the x-axis)
+// This graph will be useful to see general trends of making or losing money over different time periods
 
-    private lateinit var buttonBackToHomePage: Button
+// The bottom graph will display a bar graph that compares the profitability of session depending on stakes or game type (whatever one the user selects)
+// If the user chooses game type, you will see two bar, one to represent money made/lost in PLO and one for NLH
+// If the user chooses stakes, you will see multiple bars, each one representing money made/lost playing with a specific big blind amount
+
+class ViewGraphsActivity : AppCompatActivity() {
     private lateinit var graphView1: GraphView
     private lateinit var graphView2: GraphView
     private lateinit var stakesSelection: RadioButton
     private lateinit var locationSelection: RadioButton
     private lateinit var gameTypeSelection: RadioButton
+
+    private lateinit var buttonBackToHomePage: Button
     private lateinit var valueEventListener: ValueEventListener
 
     private lateinit var databaseSession: DatabaseReference
@@ -67,6 +75,8 @@ class ViewGraphsActivity : AppCompatActivity() {
 
                 series.appendData(DataPoint(numSessions.toDouble(), currProfit.toDouble()), true, 500)
                 series2.appendData(DataPoint(numSessions.toDouble(), currProfit.toDouble()), true, 500)
+
+                // This code iterates through the users sessions and keeps track of cumulative profits/losses so that we can see a profit vs number of sessions graph
                 for (postSnapshot in dataSnapshot.child(uid).children) {
                     try {
                         session = postSnapshot.getValue(Session::class.java)

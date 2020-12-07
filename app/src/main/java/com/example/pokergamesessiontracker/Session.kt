@@ -3,6 +3,11 @@ package com.example.pokergamesessiontracker
 import android.os.Parcel
 import android.os.Parcelable
 
+
+// This class defines the fields that are part of a poker session
+// The user enters the following strings when adding a session: date, game type, location
+// The user enters the following integers when adding a session: small and big blinds, cash out and buy in amounts, and the number of hours played
+
 class Session(val id: String? = "", val sessionId: String? = "", val date: String? = "", val gameType: String? = "", val location: String? = "", val smallBlind: Int = 0, val bigBlind: Int = 0, val buyInAmount: Int = 0, val cashOutAmount: Int = 0, val hoursPlayed: Int = 0) : Parcelable {
     constructor(parcel: Parcel) : this(
         id = parcel.readString(),

@@ -45,6 +45,7 @@ class DashboardActivity : AppCompatActivity() {
         buttonAddSession = findViewById<View>(R.id.buttonAddSession) as Button
         buttonViewGraphs = findViewById<View>(R.id.buttonViewGraphs) as Button
 
+        // Career Stats text views that will be updated as the user adds sessions
         moneyMade = findViewById<TextView>(R.id.moneyMade)
         returnOnInvestment = findViewById<TextView>(R.id.returnOnInvestment)
         sessionsPlayed = findViewById<TextView>(R.id.sessionsPlayed)
@@ -57,6 +58,7 @@ class DashboardActivity : AppCompatActivity() {
         uid = intent.getStringExtra("com.example.pokergamesessiontracker.userid").toString()
         Log.i("DashboardActivity", "uid is " + uid.toString())
 
+        // Clicking the Add Session Button brings the user to another page where they can add information about their session
         buttonAddSession.setOnClickListener {
             val intent = Intent(applicationContext, SessionActivity::class.java)
             intent.putExtra("count", count)
@@ -65,17 +67,20 @@ class DashboardActivity : AppCompatActivity() {
             startActivityForResult(intent, ACTIVITY_CODE)
         }
 
+        // Clicking the View Graphs Button brings the user to another page where they can see graphs over all the sessions they have entered
         buttonViewGraphs.setOnClickListener {
             val intent = Intent(applicationContext, ViewGraphsActivity::class.java)
             intent.putExtra("uid", uid)
             startActivity(intent)
         }
 
+        // Clicking on a specfic session bring up a new page where the user can see all the specific information of that session, such as stakes played and hours played etc.
         listViewSessions.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
             val session = sessions[i]
 
             val intent = Intent(applicationContext, SessionView::class.java)
 
+            // We pass all the session information on to the next page where the user can see it in a nicer format
             intent.putExtra("uid", uid)
             intent.putExtra("id", session.id)
             intent.putExtra("date", session.date)
@@ -139,6 +144,8 @@ class DashboardActivity : AppCompatActivity() {
                 sessions.clear()
                 var session: Session? = null
                 Log.i("child count is = ", dataSnapshot.childrenCount.toString())
+
+                // This iterates through all the users sessions, getting information like the amount of total hours played, total sessions played, and the buyins and cashout amounts so we can calculate total profit and ROI
                 for (postSnapshot in dataSnapshot.child(uid).children) {
                     try {
                         session = postSnapshot.getValue(Session::class.java)
@@ -157,6 +164,8 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 var profit = cashouts - buyins
                 var investment: Int = 0
+
+                // Calculate ROI
                 if (buyins > 0) {
                     investment = ((cashouts.toDouble() - buyins.toDouble())/buyins.toDouble() * 100).roundToInt()
                 }
