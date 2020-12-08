@@ -18,6 +18,8 @@
         android:layout_height="wrap_content"
         android:text="login"/>
 
+
+    <!-- Icon image taken from : https://www.flaticon.com/free-icon/poker_3142085?term=poker&page=1&position=17&related_item_id=3142085 -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="321dp"
