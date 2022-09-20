@@ -1,8 +1,3 @@
-# CMSC436-Final
-CMSC436 Final Project
+# Poker Session Tracker
 
-Joel Eckles – 26 – Poker Cash Game Session Tracker
-
-Matt Dovel – 26 – Poker Cash Game Session Tracker
-
-Mark Hanz - 26 - Poker Cash Game Session Tracker
+This is an application built for andriod meant for the purpose of tracking poker statistics. It's really bad. 
